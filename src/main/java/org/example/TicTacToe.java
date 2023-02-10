@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.Scanner;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class TicTacToe {
@@ -86,17 +87,19 @@ class Main {
             p = p2;
             if (count % 2 == 0)
                 p = p1;
-            logger.info("  0 1 2");
+            char finalP = p;
+            System.out.print("  0 1 2\n");
             for (int i = 0; i < 3; i++) {
                 System.out.print(i + " ");
                 for (int j = 0; j < 3; j++) {
-                    logger.info(a[i][j] + " ");
+                    System.out.print(a[i][j] + " ");
                 }
-//                logger.info("\n");
+                System.out.print("\n");
             }
             boolean player = true;
             while(player){
-                logger.info("Player " + p + " turn : ");
+
+                logger.log(Level.INFO, () -> "Player " + finalP + " turn : ");
                 logger.info("Enter row Index : ");
                 rowIndex = sc.nextInt();
                 logger.info("Enter column Index : ");
@@ -106,7 +109,7 @@ class Main {
             }
             a[rowIndex][columnIndex] = p;
             if (t.checkWin(rowIndex, columnIndex, a) == 0) {
-                logger.info("Player "+p+" Win");
+                logger.log(Level.INFO,()-> "Player "+finalP+" Win");
                 break;
             }
             logger.info("continue---------");
