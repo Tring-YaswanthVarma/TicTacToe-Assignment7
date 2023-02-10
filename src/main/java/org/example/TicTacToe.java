@@ -83,17 +83,16 @@ class Main {
         int columnIndex = -1;
         int count = 0;
         while (count < 9) {
+            p = p2;
             if (count % 2 == 0)
                 p = p1;
-            else
-                p = p2;
             logger.info("  0 1 2");
             for (int i = 0; i < 3; i++) {
                 System.out.print(i + " ");
                 for (int j = 0; j < 3; j++) {
                     logger.info(a[i][j] + " ");
                 }
-                logger.info("\n");
+//                logger.info("\n");
             }
             boolean player = true;
             while(player){
@@ -109,9 +108,8 @@ class Main {
             if (t.checkWin(rowIndex, columnIndex, a) == 0) {
                 logger.info("Player "+p+" Win");
                 break;
-            } else {
-                logger.info("continue---------");
             }
+            logger.info("continue---------");
             count += 1;
         }
     }
