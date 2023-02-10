@@ -88,13 +88,16 @@ class Main {
             if (count % 2 == 0)
                 p = p1;
             char finalP = p;
-            System.out.print("  0 1 2\n");
+            String s;
+            logger.info("  0 1 2\n");
             for (int i = 0; i < 3; i++) {
-                System.out.print(i + " ");
+                s = i + " ";
+                logger.info(s);
                 for (int j = 0; j < 3; j++) {
-                    System.out.print(a[i][j] + " ");
+                    s = a[i][j] + " ";
+                    logger.info(s);
                 }
-                System.out.print("\n");
+                logger.info("\n");
             }
             boolean player = true;
             while(player){
