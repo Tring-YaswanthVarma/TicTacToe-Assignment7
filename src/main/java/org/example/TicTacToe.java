@@ -77,8 +77,8 @@ class Main {
         char p1 = 'x';
         char p2 = 'O';
         char p;
-        int rowIndex;
-        int columnIndex;
+        int rowIndex = -1;
+        int columnIndex = -1;
         int count = 0;
         while (count < 9) {
             if (count % 2 == 0)
@@ -102,16 +102,13 @@ class Main {
                 columnIndex = sc.nextInt();
                 if (a[rowIndex][columnIndex] == 0)
                     player = false;
-                else
-                    continue;
-                a[rowIndex][columnIndex] = p;
-                if (t.checkWin(rowIndex, columnIndex, a) == 0) {
-                    System.out.println("Player "+p+" Win");
-                    count = 10;
-                    break;
-                } else {
-                    System.out.println("continue---------");
-                }
+            }
+            a[rowIndex][columnIndex] = p;
+            if (t.checkWin(rowIndex, columnIndex, a) == 0) {
+                System.out.println("Player "+p+" Win");
+                break;
+            } else {
+                System.out.println("continue---------");
             }
             count += 1;
         }
