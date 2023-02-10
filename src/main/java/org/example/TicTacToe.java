@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 public class TicTacToe {
     public int checkHorizontal(char[] a) {
@@ -72,6 +73,7 @@ public class TicTacToe {
 class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        Logger logger = Logger.getLogger("com.api.jar");
         char[][] a = new char[3][3];
         TicTacToe t = new TicTacToe();
         char p1 = 'x';
@@ -85,30 +87,30 @@ class Main {
                 p = p1;
             else
                 p = p2;
-            System.out.println("  0 1 2");
+            logger.info("  0 1 2");
             for (int i = 0; i < 3; i++) {
                 System.out.print(i + " ");
                 for (int j = 0; j < 3; j++) {
-                    System.out.print(a[i][j] + " ");
+                    logger.info(a[i][j] + " ");
                 }
-                System.out.println();
+                logger.info("\n");
             }
             boolean player = true;
             while(player){
-                System.out.println("Player " + p + " turn : ");
-                System.out.println("Enter row Index : ");
+                logger.info("Player " + p + " turn : ");
+                logger.info("Enter row Index : ");
                 rowIndex = sc.nextInt();
-                System.out.println("Enter column Index : ");
+                logger.info("Enter column Index : ");
                 columnIndex = sc.nextInt();
                 if (a[rowIndex][columnIndex] == 0)
                     player = false;
             }
             a[rowIndex][columnIndex] = p;
             if (t.checkWin(rowIndex, columnIndex, a) == 0) {
-                System.out.println("Player "+p+" Win");
+                logger.info("Player "+p+" Win");
                 break;
             } else {
-                System.out.println("continue---------");
+                logger.info("continue---------");
             }
             count += 1;
         }
