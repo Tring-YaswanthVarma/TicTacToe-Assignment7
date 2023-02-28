@@ -33,9 +33,10 @@ class Main {
         int columnIndex = -1;
         int count = 0;
         while (count < 9) {
-            p = p2;
-            if (count % 2 == 0)
-                p = p1;
+//            p = p2;
+//            if (count % 2 == 0)
+//                p = p1;
+            p = count % 2 == 0 ? p1 : p2;
             String s;
             print(a);
             boolean player = true;
