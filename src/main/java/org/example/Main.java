@@ -7,18 +7,23 @@ class Main {
 
     public static void print(char[][] a) {
         Logger log = Logger.getLogger("com.api.jar");
+        String s;
 
         log.info("  0 1 2\n");
         for (int i = 0; i < 3; i++) {
-            log.info(i + " ");
+            s = i + " ";
+            log.info(s);
             for (int j = 0; j < 3; j++) {
-                log.info(a[i][j] + " ");
+                s = a[i][j] + " ";
+                log.info(s);
             }
             log.info("\n");
         }
     }
     public static void main(String[] args) {
         Logger log = Logger.getLogger("com.api.jar");
+        String s;
+        Scanner sc = new Scanner(System.in);
 
         char[][] a = new char[3][3];
         TicTacToe t = new TicTacToe();
@@ -33,7 +38,8 @@ class Main {
             print(a);
             boolean player = true;
             while (player) {
-                log.info("Player " + p + " turn : ");
+                s = "Player " + p + " turn : ";
+                log.info(s);
                 try {
 
                     log.info("Enter row Index and column index: ");
@@ -50,7 +56,8 @@ class Main {
             }
             a[rowIndex][columnIndex] = p;
             if (t.checkWin(rowIndex, columnIndex, a) == 0) {
-                log.info("Player " + p + " Win");
+                s = "Player " + p + " Win";
+                log.info(s);
                 break;
             }
             count += 1;
