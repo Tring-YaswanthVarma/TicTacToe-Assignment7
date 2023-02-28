@@ -51,11 +51,11 @@ class Main {
                         player = false;
                     else
                         System.out.println("That position is already occupied. Try again");
-                } catch (InputMismatchException e) {
-                    System.out.println("Cannot enter alphabets. Enter a number from 0, 1 and 2.");
-                    sc.nextLine();
-                } catch (ArrayIndexOutOfBoundsException e){
-                    System.out.println("Enter a number less than 3, Since this is a 3x3 grid.");
+//                } catch (InputMismatchException e) {
+//                    System.out.println("Cannot enter alphabets. Enter a number from 0, 1 and 2.");
+//                    sc.nextLine();
+                } catch (Exception e){
+                    System.out.println("Only enter a number less than 3, Since this is a 3x3 grid.");
                 }
 
             }
