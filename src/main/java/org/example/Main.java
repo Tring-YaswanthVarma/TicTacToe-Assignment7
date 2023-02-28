@@ -60,6 +60,7 @@ class Main {
                 log.info(s);
                 break;
             }
+
             count += 1;
         }
     }
