@@ -20,7 +20,6 @@ class Main {
     public static void main(String[] args) {
         Logger log = Logger.getLogger("com.api.jar");
 
-        Scanner sc = new Scanner(System.in);
         char[][] a = new char[3][3];
         TicTacToe t = new TicTacToe();
         char p1 = 'x';
