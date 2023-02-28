@@ -1,5 +1,7 @@
 package org.example;
 
+import java.sql.SQLOutput;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -8,6 +10,7 @@ class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Logger logger = Logger.getLogger("com.api.jar");
+//        System.out.println("Hello how are you :");
         char[][] a = new char[3][3];
         TicTacToe t = new TicTacToe();
         char p1 = 'x';
@@ -20,35 +23,44 @@ class Main {
             p = p2;
             if (count % 2 == 0)
                 p = p1;
-            char finalP = p;
+//            char finalP = p;
             String s;
-            logger.info("  0 1 2\n");
+            System.out.println("  0 1 2\n");
             for (int i = 0; i < 3; i++) {
                 s = i + " ";
-                logger.info(s);
+                System.out.print(i + " ");
                 for (int j = 0; j < 3; j++) {
                     s = a[i][j] + " ";
-                    logger.info(s);
+                    System.out.print(a[i][j] + " ");
                 }
-                logger.info("\n");
+                System.out.println("\n");
             }
             boolean player = true;
             while (player) {
+                System.out.println("Player " + p + " turn : ");
+                try {
 
-                logger.log(Level.INFO, () -> "Player " + finalP + " turn : ");
-                logger.info("Enter row Index : ");
-                rowIndex = sc.nextInt();
-                logger.info("Enter column Index : ");
-                columnIndex = sc.nextInt();
-                if (a[rowIndex][columnIndex] == 0)
-                    player = false;
+                    System.out.println("Enter row Index and column index: ");
+                    rowIndex = sc.nextInt();
+                    columnIndex = sc.nextInt();
+                    if (a[rowIndex][columnIndex] == 0)
+                        player = false;
+                    else
+                        System.out.println("That position is already occupied. Try again");
+                } catch (InputMismatchException e) {
+                    System.out.println("Cannot enter alphabets. Enter a number from 0, 1 and 2.");
+                    sc.nextLine();
+                } catch (ArrayIndexOutOfBoundsException e){
+                    System.out.println("Enter a number less than 3, Since this is a 3x3 grid.");
+                }
+
             }
             a[rowIndex][columnIndex] = p;
             if (t.checkWin(rowIndex, columnIndex, a) == 0) {
-                logger.log(Level.INFO, () -> "Player " + finalP + " Win");
+                System.out.println("Player " + p + " Win");
                 break;
             }
-            logger.info("continue---------");
+//            System.out.println("continue---------");
             count += 1;
         }
     }

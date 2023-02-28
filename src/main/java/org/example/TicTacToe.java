@@ -57,7 +57,7 @@ public class TicTacToe {
             lDig = checkLeftDiagonal(2, 0, a);
         } else if (rowIndex == columnIndex) {
             rDig = checkRightDiagonal(a);
-        } else {
+        } else if(rowIndex - columnIndex == 2 || rowIndex - columnIndex == -2) {
             lDig = checkLeftDiagonal(2, 0, a);
         }
         if (hor == 0 || ver == 0 || rDig == 0 || lDig == 0) {
