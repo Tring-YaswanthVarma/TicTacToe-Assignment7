@@ -7,6 +7,19 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 class Main {
+
+    public static void print(char[][] a) {
+        System.out.println("  0 1 2\n");
+        for (int i = 0; i < 3; i++) {
+//            s = i + " ";
+            System.out.print(i + " ");
+            for (int j = 0; j < 3; j++) {
+//                s = a[i][j] + " ";
+                System.out.print(a[i][j] + " ");
+            }
+            System.out.println("\n");
+        }
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Logger logger = Logger.getLogger("com.api.jar");
@@ -23,18 +36,8 @@ class Main {
             p = p2;
             if (count % 2 == 0)
                 p = p1;
-//            char finalP = p;
             String s;
-            System.out.println("  0 1 2\n");
-            for (int i = 0; i < 3; i++) {
-                s = i + " ";
-                System.out.print(i + " ");
-                for (int j = 0; j < 3; j++) {
-                    s = a[i][j] + " ";
-                    System.out.print(a[i][j] + " ");
-                }
-                System.out.println("\n");
-            }
+            print(a);
             boolean player = true;
             while (player) {
                 System.out.println("Player " + p + " turn : ");
