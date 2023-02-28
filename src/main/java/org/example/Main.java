@@ -1,9 +1,6 @@
 package org.example;
 
-import java.sql.SQLOutput;
-import java.util.InputMismatchException;
 import java.util.Scanner;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 class Main {
@@ -20,7 +17,6 @@ class Main {
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Logger logger = Logger.getLogger("com.api.jar");
         char[][] a = new char[3][3];
         TicTacToe t = new TicTacToe();
         char p1 = 'x';
@@ -31,7 +27,6 @@ class Main {
         int count = 0;
         while (count < 9) {
             p = count % 2 == 0 ? p1 : p2;
-            String s;
             print(a);
             boolean player = true;
             while (player) {
