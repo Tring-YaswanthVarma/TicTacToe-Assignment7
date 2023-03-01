@@ -51,6 +51,7 @@ class Main {
                         log.info("That position is already occupied. Try again");
                 } catch (Exception e){
                     log.info("Only enter a number less than 3, Since this is a 3x3 grid.");
+                    sc.nextLine();
                 }
 
             }
